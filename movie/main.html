@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ 사용자 정의 CSS 파일 (main.css) -->
+  <link rel="stylesheet" href="./main.css">
+
+<!-- ✅ Bootstrap 5.3.3 CSS 추가 (디자인 스타일 적용) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+  rel="stylesheet" 
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+  crossorigin="anonymous">
+
+<!-- ✅ Google Fonts: 폰트 추가 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+  <title>간편 영화 후기</title>
+</head>
+
+<body>
+  <!-- 부트스트랩에서 가져온 navar바 -->
+  <nav class="navbar bg-dark" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="app">
+        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bW92aWV8ZW58MHx8MHx8fDA%3D" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+        간편 영화 후기
+      </a>
+    </div>
+  </nav>
+
+
+
+  <div class="container">
+    <div class="p-5 mb-4 bg-light rounded-3" id="temp_jumbortron" >
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">영화리뷰 사이트를 만들었습니다.</h1>
+        <p class="col-md-8 mx-auto fs-4">여러분의 소중한 후기 부탁드려요~</p>
+        <hr id="container-hr">
+        <button class="btn btn-danger btn-lg" type="button" onclick="dbkey()">DB키 받으러 가기</button>
+      </div>
+    </div>
+  </div>
+
+<!-- 카드 섹션 -->
+<div class="container">
+  <div class="row mt-4 g-4" id="cardset">
+      <div class="col-md-4">
+          <div class="card p-3 cardin d-flex justify-content-center">
+              <h5 class="card-title">Card title</h5>
+              <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-3 cardin d-flex justify-content-center">
+            <h5 class="card-title">Card title</h5>
+            <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 cardin d-flex justify-content-center">
+          <h5 class="card-title">Card title</h5>
+          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card p-3 cardin d-flex justify-content-center">
+          <h5 class="card-title">Card title</h5>
+          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 cardin d-flex justify-content-center">
+          <h5 class="card-title">Card title</h5>
+          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card p-3 cardin d-flex justify-content-center">
+          <h5 class="card-title">Card title</h5>
+          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" tabindex="-1" id="Modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+  crossorigin="anonymous"></script>
+</body>
+
+<script>
+  function dbkey(){
+    alert("nokey");
+  }
+
+  function review_modal(){
+    const myModalAlternative = new bootstrap.Modal(document.getElementById('Modal'));
+    myModalAlternative.show();
+  }
+
+</script>
+</html>
