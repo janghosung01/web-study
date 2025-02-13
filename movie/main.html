@@ -45,53 +45,12 @@
     </div>
   </div>
 
-<!-- 카드 섹션 -->
-<div class="container">
+<!-- 카드 섹션(카드들 담는 컨테이너) -->
+<div class="container", id ="cardcontainer">
+  <!-- 각각의 카드설정 3개씩나오게 갭 4 -->
   <div class="row mt-4 g-4" id="cardset">
-      <div class="col-md-4">
-          <div class="card p-3 cardin d-flex justify-content-center">
-              <h5 class="card-title">Card title</h5>
-              <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
-          </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card p-3 cardin d-flex justify-content-center">
-            <h5 class="card-title">Card title</h5>
-            <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
-        </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card p-3 cardin d-flex justify-content-center">
-          <h5 class="card-title">Card title</h5>
-          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
-      </div>
-    </div>
     
-    <div class="col-md-4">
-      <div class="card p-3 cardin d-flex justify-content-center">
-          <h5 class="card-title">Card title</h5>
-          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card p-3 cardin d-flex justify-content-center">
-          <h5 class="card-title">Card title</h5>
-          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card p-3 cardin d-flex justify-content-center">
-          <h5 class="card-title">Card title</h5>
-          <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
-      </div>
-    </div>
-
-    
-  </div>
+  </div> 
 </div>
 
 <!-- MODAL -->
@@ -112,14 +71,42 @@
     </div>
   </div>
 </div>
-
-
+<!-- jquery -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
   crossorigin="anonymous"></script>
 </body>
 
 <script>
+  // html 로드 된후 실행 뒤에 함수실행행
+  document.addEventListener("DOMContentLoaded",function apiconnect_orapiload(){
+    fetch("https://api.themoviedb.org/3/movie/popular?api_key=10923b261ba94d897ac6b81148314a3f&page=1")
+      .then(response => response.json()) // API 응답이 오면 JSON으로 변환
+      .then(data => {
+        console.log(data)
+        let dataLists=data.results;
+        console.log(dataLists);
+
+        const cardset = document.getElementById("cardset");  //html 을통해 받아옴 html 과 공유되는것 같음음
+
+        for(let i=0;i<dataLists.length;i++){
+          const card=document.createElement("div"); 
+          card.classList.add("col-md-4");
+          card.innerHTML=`
+            <div class="card p-3 cardin d-flex justify-content-center">
+              <img src= "${'https://image.tmdb.org/t/p/w500' +dataLists[i].poster_path}" alt="NO image">
+              <h5 class="card-title">${dataLists[i].title}</h5>
+              <button type="button" class="btn btn-success btn-width" onclick="review_modal()">리뷰 보기</button>
+            </div>
+          `
+          cardset.appendChild(card);
+        }
+      }); // 변환된 JSON 데이터 출력 /*이시점 부터 api 데이터 사용 가가능*/
+      
+  }
+  )  
+
+
   function dbkey(){
     alert("nokey");
   }
